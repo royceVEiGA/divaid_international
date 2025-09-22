@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Campus Tour</title>
+</head>
+<style>
+    *{
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    body{
+        background-image: url(7.jpg);background-repeat: no-repeat;height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);background-size: cover;background-blend-mode: multiply;
+    }
+    .requestH1{
+        padding-top: 5%;margin-bottom: 0;
+        font-size: 3em;font-weight: bolder;color: white;
+    }.requestP{color: white;}
+    hr{
+        width: 30%;
+        height: 4px;background-color: rgb(197, 168, 0);border: 0;
+    }.form-inputs{
+        display: flex;
+        flex-wrap: wrap;justify-content: center;gap: 30px;
+    }div label{
+        font-size: 20px;color: rgb(197, 168, 0);
+    }div input{
+        padding: 15px;border: 1px solid #ccc;
+        border-radius: 6px; box-sizing: border-box;width: 14rem;
+        background-color: #00000071;color: white;font-family: 'Courier New', Courier, monospace;
+    }.requestSubmit{
+        border-radius: 10px;background-color: rgb(197, 168, 0);border: 0;
+        width: 30%;height: 2rem;color: white;font-size: 15px;cursor: pointer;
+    }div textarea{
+        width: 100%;background-color: #00000071;color: white;
+    }.requestForm{
+        background-color: #00000071;padding: 2%;
+    }.menu{
+            max-width: 80px;
+            position: fixed;
+            top: 0px;
+            left: 10px;
+    }
+
+    .notification {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #4CAF50;   /* green for success */
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      font-size: 16px;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .notification.show {
+      display: block;
+      opacity: 1;
+    }
+
+
+</style>
+
+<body>
+
+    <a href="disSite.html"><img src="b.png" alt="Assistance" class="menu"></a>
+
+    <h1 class="requestH1">Campus Tour Request</h1>
+    <hr>
+    <p class="requestP">Schedule your visit to our prestigious institution.<p>
+
+    <form class="requestForm" id="requestForm">
+        <div class="form-inputs">
+            <div class="form-1">
+                <label>Full Name:</label><br>
+                <input type="text" name="name" placeholder="Enter your name" required><br><br>
+                <label>Phone Number:</label><br>
+                <input type="number" name="phone" placeholder="Enter your phone number" required><br><br>
+                <label>Email Address:</label><br>
+                <input type="email" name="email" placeholder="Enter your email address" required><br><br>
+            </div>
+            <div class="form-2">
+                <label>Appointment Date:</label><br>
+                <input type="date" name="date" required><br><br>
+                <label>Appointment Time:</label><br>
+                <input type="time" name="time" required><br><br>
+                <label>Add Message (Optional):</label><br>
+                <textarea rows="3" placeholder="Type additional message here..." ></textarea><br><br>
+            </div> 
+        </div>
+        <button type="submit" class="requestSubmit">Submit</button>
+    </form>
+
+    <div id="successMsg" class="notification">
+    ✅ Submitted successfully! Will contact you to confirm your request.
+    </div>
+
+    <script>
+        const form = document.getElementById('requestForm');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', function(e) {
+        e.preventDefault(); // stop actual submission (remove if you want real submission)
+
+        // Show notification
+        successMsg.classList.add('show');
+
+        form.reset();
+
+        // Hide after 5 seconds
+        setTimeout(() => {
+            successMsg.classList.remove('show');
+        }, 5000);
+        });
+    </script>
+
+</body>
+</html>
